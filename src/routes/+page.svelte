@@ -68,10 +68,10 @@
   <div>
     <div class="flex justify-center">
       <input
-        placeholder="Enter your address"
+        placeholder="Enter your address / ENS"
         type="text"
         maxlength="42"
-        class="border-2 border-black p-3 w-96 rounded-xl"
+        class="border-2 border-black p-3 px-6 w-96 rounded-xl"
         on:input={searchFunc}
       />
     </div>
@@ -103,10 +103,26 @@
       {:else if !found}
         <div class="flex justify-center">
           <div class=" border-slate-300 border-2 rounded-xl m-10 w-[30em] p-10">
-            Sorry You Are not eligible :(
+            <div class="text-[3.5em]">😢</div>
+            <div>
+              Sorry, you are not eligible but don't worry there are 19% of the
+              total initial supply of OP is dedicated to airdrops!
+            </div>
           </div>
         </div>
       {/if}
     {/if}
   </div>
 {/if}
+<div class="flex flex-grow" />
+<div class="flex justify-center mt-10 text-md">
+  <span>
+    --- This site was built by <a
+      href="https://github.com/Billy19191/OP-Airdrop-3/commits/main"
+      target="_blank"
+      class="font-bold hover:text-red-600 transition ease-in-out duration-200"
+    >
+      @Billy191</a
+    > ---
+  </span>
+</div>
