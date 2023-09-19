@@ -45,26 +45,33 @@
 </script>
 
 {#if dataLoad}
-  <div class="flex flex-col justify-center items-center mt-6 px-16 px-[30rem]">
+  <div class="flex flex-col justify-center items-center mt-6 p-10 lg:px-64">
     <div class="flex justify-center font-bold text-[30px] lg:text-[40px]">
       Check OP Airdrop 3 Eligibility
     </div>
     <div class="flex flex-wrap mt-6">
-      Airdrop #3 is being directly disbursed to addresses that have delegated
-      the voting power of their OP tokens between Jan 20 and July 20. On top of
-      the baseline reward for delegation, addresses receive a 2x bonus if they
-      have delegated to an active voter – someone who has participated in an
-      onchain vote in Optimism governance. Read more in our docs:
-      https://community.optimism.io/docs/governance/airdrop-3/
+      <div>
+        Airdrop #3 is being directly disbursed to addresses that have delegated
+        the voting power of their OP tokens between Jan 20 and July 20. On top
+        of the baseline reward for delegation, addresses receive a 2x bonus if
+        they have delegated to an active voter – someone who has participated in
+        an onchain vote in Optimism governance. Read more about the airdrop <a
+          class="inline-link text-red-600"
+          href="https://community.optimism.io/docs/governance/airdrop-3/"
+          target="_blank"
+        >
+          here
+        </a>
+      </div>
     </div>
   </div>
-  <div class="pt-16">
-    <div class="px-[50em]">
+  <div>
+    <div class="flex justify-center">
       <input
         placeholder="Enter your address"
         type="text"
         maxlength="42"
-        class="border-2 border-black p-3 w-full rounded-xl"
+        class="border-2 border-black p-3 w-96 rounded-xl"
         on:input={searchFunc}
       />
     </div>
