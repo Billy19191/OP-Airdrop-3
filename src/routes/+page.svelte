@@ -12,17 +12,15 @@
   if (browser) {
     ;(async () => {
       try {
-        const response = await fetch('/csvjson.json')
+        const response = await fetch('/op3_detail.json')
         data = await response.json()
         dataLoad = true
-        console.log(data)
       } catch (error) {
         console.error('Error loading data:', error)
       }
     })()
   }
-  let isInput
-  let found, result
+  let isInput, found, result
   let loading = false
   const searchFunc = async (event) => {
     loading = true
@@ -38,7 +36,6 @@
       }
     }
     loading = false
-    console.log(input)
     result = data.find((each) => each.address === input.toLowerCase())
     found = result ? true : false
   }
@@ -87,10 +84,23 @@
             </div>
             <div class="flex mt-4">
               <div class=" italic text-[30px] font-bold w-fit">
-                {result.total_op.toFixed(2)}
+                {result.op_amount_decimal_adjusted.toFixed(2)}
               </div>
               <div class="w-10">
-                <img src="/optimism-logo.png" class="ml-3 w-fit h-10" />
+                <img src="/optimism-logo.png" class="ml-3 w-fit h-10 mb-0" />
+              </div>
+            </div>
+            <div class="font-medium mt-3">
+              <div>
+                Governance Delegation Reward: {result.gov_delegation.toFixed(2)}
+                OP
+              </div>
+              <div>
+                Voting Delegate Bonus: {result.active_gov_delegation.toFixed(2)}
+                OP
+              </div>
+              <div>
+                Compensation Additional: {result.drop2_mod.toFixed(2)} OP
               </div>
             </div>
             <div class="mt-4">
@@ -102,11 +112,16 @@
         <div />
       {:else if !found}
         <div class="flex justify-center">
-          <div class=" border-slate-300 border-2 rounded-xl m-10 w-[30em] p-10">
+          <div
+            class=" border-slate-300 border-2 rounded-xl m-10 mb-0 w-[30em] p-10"
+          >
             <div class="text-[3.5em]">😢</div>
-            <div>
-              Sorry, you are not eligible but don't worry there are 19% of the
-              total initial supply of OP is dedicated to airdrops!
+            <div class="text-xl font-medium">
+              Sorry, you are not eligible for airdrop 3
+            </div>
+            <div class="flex mt-4">
+              But don't worry there are 19% of the total initial supply of OP is
+              dedicated to airdrops!
             </div>
           </div>
         </div>
